@@ -38,23 +38,23 @@ export function TransactionHistory() {
 
           if (!tx) return null;
 
-          let type = '알 수 없음';
+          let type = 'Unknown';
           let amount;
 
           if (tx.meta?.logMessages) {
             const messages = tx.meta.logMessages;
             
             if (messages.some(msg => msg.includes('Transfer'))) {
-              type = 'SOL 전송';
+              type = 'SOL Transfer';
               amount = tx.meta.postBalances[0] - tx.meta.preBalances[0];
             } else if (messages.some(msg => msg.includes('Instruction: Sign'))) {
-              type = '서명 요청';
+              type = 'Sign Request';
             } else if (messages.some(msg => msg.includes('Instruction: Initialize'))) {
-              type = '초기화';
+              type = 'Initialize';
             } else if (messages.some(msg => msg.includes('Instruction: Stake'))) {
-              type = '스테이킹';
+              type = 'Staking';
             } else if (messages.some(msg => msg.includes('Instruction: Swap'))) {
-              type = '토큰 스왑';
+              type = 'Token Swap';
             }
             
             const programIds = messages
@@ -62,8 +62,8 @@ export function TransactionHistory() {
               .map(msg => msg.split(' ')[1]);
             
             if (programIds.includes('11111111111111111111111111111111')) {
-              if (type === '알 수 없음') {
-                // System Program instruction 분석
+              if (type === 'Unknown') {
+                // System Program instruction analysis
                 const instructions = tx.transaction.message.instructions;
                 if (instructions && instructions.length > 0) {
                   const systemInstruction = instructions[0];
@@ -71,28 +71,28 @@ export function TransactionHistory() {
                     const { type: instructionType } = systemInstruction.parsed;
                     switch (instructionType) {
                       case 'createAccount':
-                        type = '계정 생성';
+                        type = 'Create Account';
                         break;
                       case 'assign':
-                        type = '계정 할당';
+                        type = 'Assign Account';
                         break;
                       case 'transfer':
-                        type = 'SOL 전송';
+                        type = 'SOL Transfer';
                         break;
                       case 'createAccountWithSeed':
-                        type = '시드 계정 생성';
+                        type = 'Create Seed Account';
                         break;
                       case 'allocate':
-                        type = '메모리 할당';
+                        type = 'Allocate Memory';
                         break;
                       default:
-                        type = `시스템 작업: ${instructionType}`;
+                        type = `System Operation: ${instructionType}`;
                     }
                   }
                 }
               }
             } else if (programIds.includes('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA')) {
-              if (type === '알 수 없음') type = '토큰 프로그램';
+              if (type === 'Unknown') type = 'Token Program';
             }
           }
 
@@ -118,7 +118,7 @@ export function TransactionHistory() {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('트랜잭션 정보를 가져오는데 실패했습니다:', error);
+        console.error('Failed to fetch transaction information:', error);
         setLoading(false);
       });
   }, [publicKey, connection]);
@@ -127,9 +127,9 @@ export function TransactionHistory() {
 
   return (
     <div className="w-full max-w-md p-4 bg-gray-800 rounded-lg shadow">
-      <h2 className="text-xl font-bold mb-4">최근 트랜잭션</h2>
+      <h2 className="text-xl font-bold mb-4">Recent Transactions</h2>
       {loading ? (
-        <div className="text-center">로딩 중...</div>
+        <div className="text-center">Loading...</div>
       ) : transactions.length > 0 ? (
         <div className="space-y-2">
           {transactions.map((tx) => (
@@ -140,7 +140,7 @@ export function TransactionHistory() {
               >
                 <span className="text-sm">{tx.type}</span>
                 <span className={tx.status === 'success' ? 'text-green-400' : 'text-red-400'}>
-                  {tx.status === 'success' ? '성공' : '실패'}
+                  {tx.status === 'success' ? 'Success' : 'Failed'}
                 </span>
               </div>
               {tx.amount && (
@@ -152,11 +152,11 @@ export function TransactionHistory() {
                 {new Date(tx.timestamp * 1000).toLocaleString()}
               </div>
               
-              {/* 상세 정보 표시 */}
+              {/* Transaction Details */}
               {expandedTx === tx.signature && (
                 <div className="mt-2 p-2 bg-gray-800 rounded text-xs font-mono">
                   <div className="mb-2">
-                    <div className="text-blue-400 mb-1">로그 메시지:</div>
+                    <div className="text-blue-400 mb-1">Log Messages:</div>
                     {tx.rawLogs?.map((log, i) => (
                       <div key={i} className="text-gray-300 break-all">{log}</div>
                     ))}
@@ -173,7 +173,7 @@ export function TransactionHistory() {
           ))}
         </div>
       ) : (
-        <div className="text-center text-gray-400">트랜잭션 내역이 없습니다</div>
+        <div className="text-center text-gray-400">No transaction history</div>
       )}
     </div>
   );

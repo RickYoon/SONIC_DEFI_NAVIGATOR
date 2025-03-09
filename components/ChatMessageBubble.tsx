@@ -12,17 +12,17 @@ export function ChatMessageBubble(props: {
 		props.message.role === "user" ? "bg-transparent" : "bg-[#444654]";
 
 	const content = useMemo(() => {
-		// 줄 간격을 일정하게 유지하기 위한 마크다운 처리
+		// Maintain consistent line spacing with markdown processing
 		const processedContent = props.message.content
 			.split('\n')
 			.map(line => {
-				// 빈 줄은 그대로 유지
+				// Keep empty lines as is
 				if (line.trim() === '') return '';
-				// 이모지로 시작하는 줄은 heading으로 처리
+				// Process lines starting with emoji as headings
 				if (line.match(/^[🔹📈💡]/)) {
 					return `### ${line}`;
 				}
-				// 일반 텍스트 줄은 p 태그로 감싸기
+				// Wrap normal text lines with p tags
 				return line ? `<p class="my-1.5">${line}</p>` : '';
 			})
 			.join('\n');

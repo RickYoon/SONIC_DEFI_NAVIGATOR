@@ -31,7 +31,7 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
   } = useChat({
     api: "/api/chat",
     onResponse(response) {
-      console.log('전체 response 객체:', response);
+      console.log('Full response object:', response);
     },
     streamMode: "text",
     onError: (e) => {
@@ -42,35 +42,35 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
     onFinish: async (message) => {
       const lastAiMessage = message;
 
-      // 각 단계별 확인 문구
+      // Step confirmation phrases
       const stepPhrases: StepPhrases = {
         1: [
-          '[💡 1단계 완료되면 말씀주세요.]',
-          '[💡 1단계 완료되면 말씀해주세요.]',
-          '[💡 1단계 완료되면 알려주세요.]',
-          '[💡 1단계 완료되면 말씀하세요.]'
+          '[💡 Please let me know when Step 1 is complete.]',
+          '[💡 Please inform me when Step 1 is complete.]',
+          '[💡 Please notify me when Step 1 is complete.]',
+          '[💡 Tell me when Step 1 is complete.]'
         ],
         2: [
-          '[💡 2단계 완료되면 말씀주세요.]',
-          '[💡 2단계 완료되면 말씀해주세요.]',
-          '[💡 2단계 완료되면 알려주세요.]',
-          '[💡 2단계 완료되면 말씀하세요.]'
+          '[💡 Please let me know when Step 2 is complete.]',
+          '[💡 Please inform me when Step 2 is complete.]',
+          '[💡 Please notify me when Step 2 is complete.]',
+          '[💡 Tell me when Step 2 is complete.]'
         ],
         3: [
-          '[💡 3단계 완료되면 말씀주세요.]',
-          '[💡 3단계 완료되면 말씀해주세요.]',
-          '[💡 3단계 완료되면 알려주세요.]',
-          '[💡 3단계 완료되면 말씀하세요.]'
+          '[💡 Please let me know when Step 3 is complete.]',
+          '[💡 Please inform me when Step 3 is complete.]',
+          '[💡 Please notify me when Step 3 is complete.]',
+          '[💡 Tell me when Step 3 is complete.]'
         ],
         4: [
-          '[💡 4단계 완료되면 말씀주세요.]',
-          '[💡 4단계 완료되면 말씀해주세요.]',
-          '[💡 4단계 완료되면 알려주세요.]',
-          '[💡 4단계 완료되면 말씀하세요.]'
+          '[💡 Please let me know when Step 4 is complete.]',
+          '[💡 Please inform me when Step 4 is complete.]',
+          '[💡 Please notify me when Step 4 is complete.]',
+          '[💡 Tell me when Step 4 is complete.]'
         ]
       };
 
-      // 각 단계별 서비스 매핑
+      // Service mapping for each step
       const stepServices: StepServices = {
         1: "raydium.io",
         2: "app.fragmetric.xyz/restake/",
@@ -78,7 +78,7 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
         4: "app.drift.trade/SOL-PERP"
       };
 
-      // 현재 단계 확인
+      // Check current step
       let currentStep = 0;
       for (const [step, phrases] of Object.entries(stepPhrases)) {
         if (phrases.some((phrase: string) => lastAiMessage?.content.includes(phrase))) {
@@ -87,11 +87,14 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
         }
       }
 
-      // 사용자가 긍정적인 응답을 했는지 확인
-      const isPositiveResponse = input && (input.includes('네') || input.includes('완료') || input.includes('시작'));
+      // Check if user response is positive
+      const isPositiveResponse = input && (input.toLowerCase().includes('yes') || 
+                                         input.toLowerCase().includes('complete') || 
+                                         input.toLowerCase().includes('start') ||
+                                         input.toLowerCase().includes('done'));
 
       if (currentStep > 0 && isPositiveResponse) {
-        console.log(`${currentStep}단계 조건 충족! ${stepServices[currentStep]}로 이동합니다.`);
+        console.log(`Step ${currentStep} conditions met! Redirecting to ${stepServices[currentStep]}`);
         
         const serviceName = stepServices[currentStep];
         const service = serviceInfoMap[serviceName];
@@ -104,26 +107,26 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
     }
   });
 
-  // 스크롤할 div에 대한 ref 생성
+  // Create ref for scrollable div
   const messagesEndRef = React.useRef<HTMLDivElement>(null);
 
-  // 스크롤을 맨 아래로 이동시키는 함수
+  // Function to scroll to bottom
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // messages가 변경될 때마다 스크롤 실행
+  // Execute scroll when messages change
   React.useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
-  // 초기 메시지 설정
+  // Set initial message
   React.useEffect(() => {
     if (messages.length === 0) {
       setMessages([{
         id: "0",
         role: "assistant",
-        content: "DeFi 프로토콜 활용 도우미 입니다. 무엇을 도와드릴까요?"
+        content: "I'm your DeFi protocol assistant. We provide step-by-step guidance to help you understand and use complex DeFi strategies. In the current version, we support delta-neutral investment strategies. Shall we begin?"
       }]);
     }
   }, []);
@@ -164,7 +167,7 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
             </div>
           </div>
         ))}
-        {/* 스크롤 위치를 잡기 위한 빈 div 추가 */}
+        {/* Empty div for scroll positioning */}
         <div ref={messagesEndRef} />
         {isLoading && (
           <div className="flex justify-start">
@@ -185,7 +188,7 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
             type="text"
             value={input}
             onChange={handleInputChange}
-            placeholder="메시지를 입력하세요..."
+            placeholder="Enter your message..."
             className="flex-1 bg-gray-800 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
@@ -193,7 +196,7 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
             disabled={isLoading}
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-800"
           >
-            전송
+            Send
           </button>
         </form>
       </div>

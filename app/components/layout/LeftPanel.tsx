@@ -217,101 +217,106 @@ const LeftPanel: React.FC<LeftPanelProps> = ({ onServiceSelect, onToggleAIChat, 
   };
 
   return (
-    <div className="w-[300px] flex-shrink-0 bg-gray-900 p-6 min-h-screen overflow-y-auto scrollbar-hide border-r border-[#98FB98]/10">
-      {/* 로고와 AI 버튼 */}
-      <div className="mb-8 flex items-center justify-between">
-        <Image
-          src="/images/linkrypto-logo.svg"
-          alt="Linkrypto"
-          width={150}
-          height={40}
-          className="w-auto"
-        />
+    <div className="w-[350px] flex-shrink-0 bg-gray-900 p-6 min-h-screen overflow-y-auto scrollbar-hide border-r border-[#98FB98]/10">
+      {/* Logo and AI Button */}
+      <div className="flex items-center justify-between p-4 border-b border-gray-800">
+        <div className="flex items-center space-x-2">
+          <img src="/images/fistack-logo.svg" alt="Fistack Logo" className="h-8" />
+        </div>
         <div className="flex gap-2">
           {activeTab === 'favorite' && (
             <button
               onClick={() => setIsEditMode(!isEditMode)}
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${
+              className={`flex items-center gap-2 px-3 py-1 rounded-lg transition-colors ${
                 isEditMode 
-                  ? 'bg-[#98FB98]/20 text-[#98FB98]' 
-                  : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                  ? 'bg-indigo-600 text-white' 
+                  : 'text-gray-400 hover:text-white'
               }`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
             </button>
           )}
           <button
             onClick={onToggleAIChat}
-            className="flex items-center gap-2 px-3 py-2 bg-[#98FB98]/20 text-[#98FB98] rounded-lg hover:bg-[#98FB98]/30 transition-all"
+            className="px-3 py-1 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-              <path fillRule="evenodd" d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" clipRule="evenodd" />
-            </svg>
-            <span className="text-sm font-medium">AI</span>
+            AI Guide
           </button>
         </div>
       </div>
 
-      {/* 탭 선택기 */}
-      <div className="mb-6">
-        <TabSelector activeTab={activeTab} onTabChange={setActiveTab} />
+      {/* Tab Selector */}
+      <div className="p-4 border-b border-gray-800">
+        <div className="flex space-x-4">
+          {['favorite', 'protocols'].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab as 'favorite' | 'protocols')}
+              className={`px-3 py-1 rounded-lg ${
+                activeTab === tab
+                  ? 'bg-indigo-600 text-white'
+                  : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {activeTab === 'favorite' ? (
-        <div className="space-y-3">
-          {favorites.length === 0 ? (
-            <div className="text-gray-400 text-center py-4">
-              즐겨찾기한 프로토콜이 없습니다
-            </div>
-          ) : (
-            <DndContext
-              sensors={sensors}
-              collisionDetection={closestCenter}
-              onDragEnd={handleDragEnd}
-            >
-              <SortableContext
-                items={favorites.map(f => f.domain)}
-                strategy={verticalListSortingStrategy}
-              >
-                {favorites.map((favorite) => {
-                  const serviceInfo = serviceInfoMap[favorite.domain];
-                  return serviceInfo ? (
-                    <SortableItem
-                      key={favorite.domain}
-                      domain={favorite.domain}
-                      info={serviceInfo}
-                      isFavoriteItem={true}
-                      selectedService={selectedService}
-                      onServiceClick={handleServiceClick}
-                      onFavoriteToggle={toggleFavorite}
-                      isEditMode={isEditMode}
-                    />
-                  ) : null;
-                })}
-              </SortableContext>
-            </DndContext>
-          )}
-        </div>
-      ) : (
-        <>
-          {/* 검색 입력창 */}
-          <div className="mb-6">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="프로토콜 검색..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-gray-800 text-gray-300 px-4 py-2.5 pl-10 rounded-lg border border-[#98FB98]/10 focus:border-[#98FB98]/30 focus:outline-none focus:ring-1 focus:ring-[#98FB98]/30"
-              />
-              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#98FB98]" />
-            </div>
+      {/* Search Input - Only show in protocols tab */}
+      {activeTab === 'protocols' && (
+        <div className="p-4 border-b border-gray-800">
+          <div className="relative">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search protocols..."
+              className="w-full bg-gray-900 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
           </div>
+        </div>
+      )}
 
-          {/* 프로토콜 목록 */}
+      {activeTab === 'favorite' && favorites.length === 0 ? (
+        <div className="text-center text-gray-500 mt-4">
+          No favorite protocols yet
+        </div>
+      ) : null}
+
+      {/* Protocol List */}
+      <div className="flex-1 overflow-y-auto">
+        {activeTab === 'favorite' ? (
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={favorites.map(f => f.domain)}
+              strategy={verticalListSortingStrategy}
+            >
+              {favorites.map((favorite) => {
+                const serviceInfo = serviceInfoMap[favorite.domain];
+                return serviceInfo ? (
+                  <SortableItem
+                    key={favorite.domain}
+                    domain={favorite.domain}
+                    info={serviceInfo}
+                    isFavoriteItem={true}
+                    selectedService={selectedService}
+                    onServiceClick={handleServiceClick}
+                    onFavoriteToggle={toggleFavorite}
+                    isEditMode={isEditMode}
+                  />
+                ) : null;
+              })}
+            </SortableContext>
+          </DndContext>
+        ) : (
           <div className="space-y-4">
             {Object.entries(filteredCategories).map(([category, services]) => (
               <div key={category} className="bg-gray-800 rounded-lg overflow-hidden">
@@ -332,8 +337,8 @@ const LeftPanel: React.FC<LeftPanelProps> = ({ onServiceSelect, onToggleAIChat, 
               </div>
             ))}
           </div>
-        </>
-      )}
+        )}
+      </div>
     </div>
   );
 };

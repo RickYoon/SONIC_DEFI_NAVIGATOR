@@ -1,38 +1,38 @@
-# 🤖 LINKRYPTO - AI-powered DeFi Navigator
+# 🤖 Figent - AI-Powered DeFi Navigator
 
-## 💡 Project Overview
+## 💡 Vision
 
-LINKRYPTO is a Solana-based AI-powered DeFi Navigator that simplifies multi-protocol investment through conversational guidance and real-time yield tracking.
+Democratizing DeFi Through Intelligent Guidance - We're making complex DeFi protocols accessible to everyone through AI-powered navigation and real-time analytics.
 
 ### 🌟 Key Features
 
-- **AI-Powered DeFi Guide**: Step-by-step guidance to easily understand and use complex DeFi protocols
-- **Real-time Yield Tracking**: Live monitoring of APR/APY across various protocols
-- **Multi-Protocol Support**: Integration with Raydium, Drift, Rate-X, Fragmetric, and more
-- **One-Stop Investment**: Seamless investment execution through AI agent
+- **AI-Guided Investment**: Step-by-step guidance through complex DeFi protocols
+- **Real-time Analytics**: Live monitoring of APR/APY across various protocols
+- **Risk Management**: Delta-neutral strategies with automated position monitoring
+- **Multi-Protocol Support**: Seamless integration with leading Solana DeFi protocols
+- **Smart Portfolio**: AI-driven portfolio optimization and rebalancing
 
-## 🛠 Technical Integration
+## 🛠 Technology Stack
 
-### Solana Integration
-
-- **solana-agent-kit**: Protocol integration for seamless transaction execution
-- **Custom API**: Proprietary system for real-time APR/APY data collection
-- **Protocol Connectivity**: Integration with major DeFi protocols including Raydium, Drift, Rate-X, Fragmetric
-
-### Tech Stack
-
-- **Frontend**: Next.js, TypeScript
+- **Frontend**: Next.js, TypeScript, TailwindCSS
 - **AI Engine**: LangChain.js, OpenAI GPT
 - **Blockchain**: Solana, Web3.js
 - **Data Processing**: Custom yield tracking system
+
+### Supported Protocols
+
+- Raydium
+- Drift Protocol
+- Rate-X
+- Fragmetric
 
 ## 🚀 Getting Started
 
 1. Clone the repository
 
 ```bash
-git clone https://github.com/RickYoon/solana_DN_agent.git
-cd solana_DN_agent
+git clone https://github.com/your-username/figent-defi.git
+cd figent-defi
 ```
 
 2. Set up environment variables
@@ -52,16 +52,38 @@ pnpm install
 pnpm dev
 ```
 
-## 🎯 Unique Value Proposition
+## 🎯 Current Focus
 
-- **AI + DeFi Synergy**: Simplify complex DeFi protocols through AI-driven interaction
-- **Real-time Data**: Accurate yield information through proprietary tracking system
-- **Unified Platform**: Manage multiple DeFi protocols through a single interface
-- **User-Centric**: Make DeFi accessible to everyone through conversational interface
+- Delta-neutral farming strategies
+- Real-time yield optimization
+- Risk management automation
+- User experience enhancement
+
+## 🔮 Roadmap
+
+### Phase 1: Foundation (Current)
+
+- AI-guided delta-neutral strategy implementation
+- Basic protocol integrations
+- Core user interface development
+
+### Phase 2: Enhancement
+
+- Additional DeFi strategies
+- Advanced analytics dashboard
+- Portfolio tracking features
+- Community features
+
+### Phase 3: Expansion
+
+- More protocol integrations
+- Mobile app development
+- Advanced AI features
+- Cross-chain support
 
 ## 📄 License
 
-Copyright © 2024 Linkrypto. All rights reserved.
+Copyright © 2024 Figent Team. All rights reserved.
 
-This project is proprietary software and all rights are reserved by Linkrypto.
+This project is proprietary software and all rights are reserved.
 Commercial use and redistribution are prohibited.

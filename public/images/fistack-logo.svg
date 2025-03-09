@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stack Icon -->
+  <rect x="10" y="25" width="20" height="5" rx="1" stroke="#00FFB2" stroke-width="2" fill="none"/>
+  <rect x="10" y="18" width="20" height="5" rx="1" stroke="#00FFB2" stroke-width="2" fill="none"/>
+  <rect x="10" y="11" width="20" height="5" rx="1" stroke="#00FFB2" stroke-width="2" fill="none"/>
+  
+  <!-- Connection Lines -->
+  <path d="M15 16 L15 18 M25 16 L25 18 M15 23 L15 25 M25 23 L25 25" 
+        stroke="#00FFB2" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  
+  <!-- Fistack Text -->
+  <text x="40" y="27" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="white">
+    Fi<tspan fill="#00FFB2">stack</tspan>
+  </text>
+  
+  <!-- Underline Effect -->
+  <path d="M40 30 L120 30" stroke="#00FFB2" stroke-width="0.5" stroke-dasharray="2 2"/>
+  
+  <!-- Decorative Circuit Elements -->
+  <circle cx="120" cy="20" r="2" fill="#00FFB2" opacity="0.3"/>
+  <path d="M122 20 L125 20" stroke="#00FFB2" stroke-width="1" opacity="0.3"/>
+</svg> 

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- 체인 링크 아이콘 -->
+  <!-- Chain Link Icon -->
   <path d="M15 20 L25 20" stroke="#00FFB2" stroke-width="3" stroke-linecap="round"/>
   <circle cx="12" cy="20" r="5" stroke="#00FFB2" stroke-width="2" fill="none"/>
   <circle cx="28" cy="20" r="5" stroke="#00FFB2" stroke-width="2" fill="none"/>
   
-  <!-- Linkrypto 텍스트 -->
+  <!-- Linkrypto Text -->
   <text x="40" y="27" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="white">
     Link<tspan fill="#00FFB2">rypto</tspan>
   </text>
   
-  <!-- 밑줄 효과 -->
+  <!-- Underline Effect -->
   <path d="M40 30 L130 30" stroke="#00FFB2" stroke-width="0.5" stroke-dasharray="2 2"/>
 </svg> 
