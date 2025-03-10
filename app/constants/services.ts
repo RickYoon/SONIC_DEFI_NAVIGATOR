@@ -10,85 +10,75 @@ interface ServiceInfo {
 }
 
 export const serviceInfoMap: Record<string, ServiceInfo> = {
-  "jito.network": {
-    name: "Jito",
-    description: "MEV-based staking service",
-    features: ["MEV Rewards Sharing", "Liquid Staking"],
+  "app.silo.finance": {
+    name: "silo.finance",
+    description: "permissionless and risk-isolated lending markets",
+    features: ["permissionless", "risk-isolated"],
+    category: "Lending",
+    tvl: "15.8M SOL",
+    chains: 1,
+    logoUrl: "https://icons.llamao.fi/icons/protocols/silo-finance?w=48&h=48",
+    url: "app.silo.finance"
+  },
+  "beets.fi/stake": {
+    name: "beats.fi",
+    description: "Flagship LST Hub",
+    features: ["LST"],
     category: "Liquid Staking",
     tvl: "15.8M SOL",
     chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/jito.png",
-    url: "jito.network"
+    logoUrl: "https://icons.llamao.fi/icons/protocols/beets?w=48&h=48",
+    url: "beets.fi/stake"
   },
-  "raydium.io": {
-    name: "Raydium AMM",
-    description: "AMM-based decentralized exchange",
-    features: ["Liquidity Provision", "Trading Optimization"],
-    category: "Dexs",
-    tvl: "$7.1M",
+  "euler.finance": {
+    name: "Euler",
+    description: "Non-custodial protocol for permissionless lending and borrowing",
+    features: ["permissionless", "lending", "borrowing"],
+    category: "Lending",
+    tvl: "N/A",
     chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/raydium?w=48&h=48",
-    url: "raydium.io"
+    logoUrl: "https://icons.llamao.fi/icons/protocols/euler-v2?w=48&h=48",
+    url: "https://www.euler.finance/"
   },
-  "sanctum.so": {
-    name: "Sanctum",
-    description: "Deposit and yield generation platform",
-    features: ["Optimized Deposits", "Yield Automation"],
+  "angles.fi": {
+    name: "Angles",
+    description: "Angles enhances Sonic with performant and secure LST ($anS). anS is compatible and can be used in DeFi to get maximum yield out of your Sonics",
+    features: ["LST", "Sonic", "DeFi"],
     category: "Liquid Staking",
-    tvl: "$3.9M",
+    tvl: "N/A",
     chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/sanctum?w=48&h=48",
-    url: "sanctum.so"
+    logoUrl: "https://icons.llamao.fi/icons/protocols/angles?w=48&h=48",
+    url: "https://angles.fi"
   },
-  "app.drift.trade/SOL-PERP": {
-    name: "Drift",
-    description: "Decentralized derivatives exchange",
-    features: ["Futures Trading", "Advanced Trading Features"],
-    category: "PerpDex",
-    tvl: "$2.1M",
+  "stability.farm/vaults": {
+    name: "Stability",
+    description: "Permissionless, non-custodial, and AI-powered automatic asset management solution.",
+    features: ["permissionless", "non-custodial", "AI-powered", "automatic asset management"],
+    category: "Liquidity Manager",
+    tvl: "N/A",
     chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/drift?w=48&h=48",
-    url: "app.drift.trade/SOL-PERP"
+    logoUrl: "https://icons.llamao.fi/icons/protocols/stability?w=48&h=48",
+    url: "stability.farm/vaults"
   },
-  "app.solayer.org": {
-    name: "Solayer",
-    description: "Solana Restaking Platform",
-    features: ["Staking Optimization", "Liquidity Provision"],
-    category: "Liquid Staking",
-    tvl: "$2.8M",
+  "app.navigator.exchange/trade#/trade": {
+    name: "Navigator",
+    description: "Decentralized Liquidity Marketplace for effortless trading and continuous liquidity across Crypto, Forex, and beyond.",
+    features: ["decentralized", "liquidity marketplace", "cross-market trading"],
+    category: "Derivatives",
+    tvl: "N/A",
     chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/solayer?w=48&h=48",
-    url: "app.solayer.org"
+    logoUrl: "https://icons.llamao.fi/icons/protocols/navigator?w=48&h=48",
+    url: "app.navigator.exchange/trade#/trade"
   },
-  "app.fragmetric.xyz/restake/": {
-    name: "fragmetric",
-    description: "Solana Restaking Platform",
-    features: ["Staking Optimization", "Liquidity Provision"],
-    category: "Liquid Staking",
-    tvl: "$2.8M",
+  "shadow.so/trade": {
+    name: "Shadow Exchange",
+    description: "A Sonic-native deconcentrated liquidity exchange.",
+    features: ["concentrated liquidity", "Sonic-native", "DEX"],
+    category: "Dexes",
+    tvl: "N/A",
     chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/fragmetric?w=48&h=48",
-    url: "app.fragmetric.xyz/restake/"
-  },
-  "app.rate-x.io/": {
-    name: "Rate-X",
-    description: "Yield Restaking Platform",
-    features: ["Staking Optimization", "Liquidity Provision"],
-    category: "YieldTrading",
-    tvl: "$2.8M",
-    chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/ratex?w=48&h=48",
-    url: "app.rate-x.io/"
-  },
-  "portfolio.jup.ag/": {
-    name: "Jupiter Portfolio",
-    description: "Portfolio Tracker",
-    features: ["portfolio tracking", "yield tracking"],
-    category: "Tools",
-    tvl: "$2.8M",
-    chains: 1,
-    logoUrl: "https://icons.llamao.fi/icons/protocols/jupiter?w=48&h=48",
-    url: "portfolio.jup.ag/"
+    logoUrl: "https://icons.llamao.fi/icons/protocols/shadow-exchange?w=48&h=48",
+    url: "shadow.so/trade"
   }
 };
 

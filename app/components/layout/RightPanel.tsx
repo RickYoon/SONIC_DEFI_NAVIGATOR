@@ -72,10 +72,10 @@ const RightPanel: React.FC<RightPanelProps> = ({ onServiceSelect, onStartInvestm
 
       // Service mapping for each step
       const stepServices: StepServices = {
-        1: "raydium.io",
-        2: "app.fragmetric.xyz/restake/",
-        3: "app.rate-x.io/",
-        4: "app.drift.trade/SOL-PERP"
+        1: "shadow.so/trade",
+        2: "beets.fi/stake",
+        3: "stability.farm/vaults",
+        4: "app.navigator.exchange/trade#/trade"
       };
 
       // Check current step

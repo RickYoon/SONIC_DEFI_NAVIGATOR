@@ -42,29 +42,29 @@ export default function RootLayout({
 	return (
 		<html lang="ko">
 			<head>
-				<title>Solana DeFi Agent</title>
-				<link rel="shortcut icon" href="/images/favicon.ico" />
+				<title>Fiver - Sonic DeFi Navigator</title>
+				<link rel="shortcut icon" href="/images/fiver-logo.svg" />
 				<meta
 					name="description"
-					content="Your personal DeFi assistant powered by AI"
+					content="Your personal DeFi navigator powered by AI"
 				/>
 				<meta
 					property="og:title"
-					content="Solana DeFi Agent"
+					content="Fiver - Sonic DeFi Navigator"
 				/>
 				<meta
 					property="og:description"
-					content="Your personal DeFi assistant powered by AI"
+					content="Your personal DeFi navigator powered by AI"
 				/>
 				<meta property="og:image" content="/images/title-card.png" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
 					name="twitter:title"
-					content="Solana DeFi Agent"
+					content="Fiver - Sonic DeFi Navigator"
 				/>
 				<meta
 					name="twitter:description"
-					content="Your personal DeFi assistant powered by AI"
+					content="Your personal DeFi navigator powered by AI"
 				/>
 				<meta name="twitter:image" content="/images/title-card.png" />
 			</head>

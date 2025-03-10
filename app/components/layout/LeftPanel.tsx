@@ -221,7 +221,7 @@ const LeftPanel: React.FC<LeftPanelProps> = ({ onServiceSelect, onToggleAIChat, 
       {/* Logo and AI Button */}
       <div className="flex items-center justify-between p-4 border-b border-gray-800">
         <div className="flex items-center space-x-2">
-          <img src="/images/fistack-logo.svg" alt="Fistack Logo" className="h-8" />
+          <img src="/images/Fiver-logo.svg" alt="Fiver Logo" className="h-8" />
         </div>
         <div className="flex gap-2">
           {activeTab === 'favorite' && (

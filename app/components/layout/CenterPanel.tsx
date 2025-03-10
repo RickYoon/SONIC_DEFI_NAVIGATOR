@@ -37,7 +37,7 @@ const CenterPanel: React.FC<CenterPanelProps> = ({
 
   useEffect(() => {
     if (serviceUrl) {
-      if (serviceUrl.includes('app.solayer.org')) {
+      if (serviceUrl.includes('app.silo.finance') || serviceUrl.includes('euler.finance')) {
         setIframeError(true);
       } else {
         setSelectedService(serviceUrl);
@@ -130,7 +130,7 @@ const CenterPanel: React.FC<CenterPanelProps> = ({
   const features = [
     {
       name: 'Multi-Protocol Access',
-      description: 'One-click access to all major Solana DeFi protocols in a single dashboard',
+      description: 'One-click access to all major Sonic DeFi protocols in a single dashboard',
       icon: '🔗',
     },
     {
@@ -158,11 +158,11 @@ const CenterPanel: React.FC<CenterPanelProps> = ({
             {/* 왼쪽: 텍스트 섹션 */}
             <div className="space-y-6">
               <h1 className="text-7xl font-bold text-white leading-tight tracking-tight">
-                The Solana<br/>
+                The sonic<br/>
                 DeFi Navigator<br/>
               </h1>
               <p className="text-xl text-gray-400 mt-6">
-              AI-powered DeFi Navigator that simplifies multi-protocol investment on Solana through conversational guidance and real-time yield tracking.
+              AI-powered DeFi Navigator that simplifies multi-protocol investment on sonic through conversational guidance and real-time yield tracking.
               </p>
               <div className="flex gap-4 mt-8">
                 <button 

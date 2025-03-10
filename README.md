@@ -1,4 +1,4 @@
-# 🤖 Figent - AI-Powered DeFi Navigator
+# 🤖 Fiver - AI-Powered DeFi Navigator
 
 ## 💡 Vision
 
@@ -9,7 +9,7 @@ Democratizing DeFi Through Intelligent Guidance - We're making complex DeFi prot
 - **AI-Guided Investment**: Step-by-step guidance through complex DeFi protocols
 - **Real-time Analytics**: Live monitoring of APR/APY across various protocols
 - **Risk Management**: Delta-neutral strategies with automated position monitoring
-- **Multi-Protocol Support**: Seamless integration with leading Solana DeFi protocols
+- **Multi-Protocol Support**: Seamless integration with leadin sonic DeFi protocols
 - **Smart Portfolio**: AI-driven portfolio optimization and rebalancing
 
 ## 🛠 Technology Stack
@@ -21,17 +21,14 @@ Democratizing DeFi Through Intelligent Guidance - We're making complex DeFi prot
 
 ### Supported Protocols
 
-- Raydium
-- Drift Protocol
-- Rate-X
-- Fragmetric
+- silo-finance
 
 ## 🚀 Getting Started
 
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/figent-defi.git
+git clone https://github.com/RickYoon/SONIC_DEFI_NAVIGATOR.git
 cd figent-defi
 ```
 
@@ -42,7 +39,6 @@ cp .env.example .env.local
 # Required environment variables:
 # - OPENAI_API_KEY
 # - RPC_URL
-# - SOLANA_PRIVATE_KEY
 ```
 
 3. Install dependencies and run
@@ -83,7 +79,7 @@ pnpm dev
 
 ## 📄 License
 
-Copyright © 2024 Figent Team. All rights reserved.
+Copyright © 2024 Fiver Team. All rights reserved.
 
 This project is proprietary software and all rights are reserved.
 Commercial use and redistribution are prohibited.

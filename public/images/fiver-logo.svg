@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fiver Text -->
+  <text x="15" y="28" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="white">
+    Fi<tspan fill="#00FFB2">ver</tspan>
+  </text>
+  
+  <!-- Underline Effect -->
+  <path d="M15 32 L110 32" stroke="#00FFB2" stroke-width="0.5" stroke-dasharray="2 2"/>
+  
+  <!-- Decorative Circuit Elements -->
+  <circle cx="115" cy="22" r="2" fill="#00FFB2" opacity="0.3"/>
+  <path d="M117 22 L120 22" stroke="#00FFB2" stroke-width="1" opacity="0.3"/>
+</svg> 
